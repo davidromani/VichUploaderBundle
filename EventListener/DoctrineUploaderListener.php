@@ -67,7 +67,7 @@ class DoctrineUploaderListener implements EventSubscriber
      */
     public function prePersist(EventArgs $event)
     {
-        $obj = $this->adapter->getObjectFromArgs($args);
+        $obj = $this->adapter->getObjectFromArgs($event);
 
         if ($this->metadata->isUploadable($this->adapter->getClassName($obj))) {
             $this->handler->handleUpload($obj);
@@ -81,7 +81,7 @@ class DoctrineUploaderListener implements EventSubscriber
      */
     public function preUpdate(EventArgs $event)
     {
-        $obj = $this->adapter->getObjectFromArgs($args);
+        $obj = $this->adapter->getObjectFromArgs($event);
 
         if ($this->metadata->isUploadable($this->adapter->getClassName($obj))) {
             $this->handler->handleUpload($obj);
@@ -96,7 +96,7 @@ class DoctrineUploaderListener implements EventSubscriber
      */
     public function postLoad(EventArgs $event)
     {
-        $obj = $this->adapter->getObjectFromArgs($args);
+        $obj = $this->adapter->getObjectFromArgs($event);
 
         if ($this->metadata->isUploadable($this->adapter->getClassName($obj))) {
             $this->handler->handleHydration($obj);
@@ -110,7 +110,7 @@ class DoctrineUploaderListener implements EventSubscriber
      */
     public function postRemove(EventArgs $event)
     {
-        $obj = $this->adapter->getObjectFromArgs($args);
+        $obj = $this->adapter->getObjectFromArgs($event);
 
         if ($this->metadata->isUploadable($this->adapter->getClassName($obj))) {
             $this->handler->handleDeletion($obj);
