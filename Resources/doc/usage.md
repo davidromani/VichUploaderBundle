@@ -302,7 +302,7 @@ At the moment there are only one directory namer available:
 
 - vich_uploader.directory_namer_current_date
 
-**vich_uploader.directory_namer_current_date** will create a directory path from current date with format YYYY/mm/dd
+**vich_uploader.directory_namer_current_date** will create a directory path from current date with format `yyyy/mm/dd`
 
 To use it, you just have to specify the service id for the `directory_namer` configuration option of your mapping :
 
