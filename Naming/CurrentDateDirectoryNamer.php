@@ -22,6 +22,6 @@ class CurrentDateDirectoryNamer implements DirectoryNamerInterface
     {
         $currentDate = new \DateTime();
 
-        return DIRECTORY_SEPARATOR . $currentDate->format('Y') . DIRECTORY_SEPARATOR . $currentDate->format('m') . DIRECTORY_SEPARATOR . $currentDate->format('d');
+        return $currentDate->format('Y') . DIRECTORY_SEPARATOR . $currentDate->format('m') . DIRECTORY_SEPARATOR . $currentDate->format('d');
     }
 }
