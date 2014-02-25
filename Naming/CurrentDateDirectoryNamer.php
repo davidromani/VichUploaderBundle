@@ -10,18 +10,18 @@ namespace Vich\UploaderBundle\Naming;
 class CurrentDateDirectoryNamer implements DirectoryNamerInterface
 {
     /**
-     * Get current date directory name with format YYYY/mm/dd
+     * Get current date directory name with format yyyy/mm/dd
      *
-     * @param object $obj
-     * @param string $field
-     * @param string $uploadDir
+     * @param  object $obj       The object the upload is attached to.
+     * @param  string $field     The name of the uploadable field to generate a name for.
+     * @param  string $uploadDir The upload directory set in config
      *
-     * @return string format YYYY/mm/dd with current date
+     * @return string The directory name
      */
     public function directoryName($obj, $field, $uploadDir)
     {
         $currentDate = new \DateTime();
 
-        return $currentDate->format('Y') . DIRECTORY_SEPARATOR . $currentDate->format('m') . DIRECTORY_SEPARATOR . $currentDate->format('d');
+        return $uploadDir . DIRECTORY_SEPARATOR . $currentDate->format('Y') . DIRECTORY_SEPARATOR . $currentDate->format('m') . DIRECTORY_SEPARATOR . $currentDate->format('d');
     }
 }
